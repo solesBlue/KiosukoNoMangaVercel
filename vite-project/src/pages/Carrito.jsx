@@ -1,10 +1,10 @@
-import React from 'react';
+import React from 'react'; 
 import { useNavigate } from "react-router-dom";
-import {useAppContext} from "../context/AppContext";
+import {useCarritoContext} from "../context/CarritoContext";
 
 export default function CarritoCompras() {
   
-  const {carrito, vaciarCarrito, agregarCantidad, quitarCantidad, isAuthenticated} = useAppContext();
+  const {carrito, vaciarCarrito, agregarCantidad, quitarCantidad, total} = useCarritoContext();
   const navigate = useNavigate();
 
   //Pasa a contecto
@@ -16,7 +16,7 @@ export default function CarritoCompras() {
     navigate("/pagar", { state: { carrito } });
   };
 
-  const total = carrito.reduce((sum, item) => sum + Number(item.precio), 0);
+  // const total = carrito.reduce((sum, item) => sum + Number(item.precio), 0);
 
   return (
     <div>

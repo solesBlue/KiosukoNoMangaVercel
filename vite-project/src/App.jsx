@@ -1,7 +1,8 @@
 import './App.css'
 import React,{ useState } from 'react'
 import { Routes, Route } from 'react-router-dom'
-import { AppProvider } from './context/AppContext'
+import { AuthProvider } from "./context/AuthContext";
+import { CarritoProvider } from "./context/CarritoContext";
 import Navbar from './components/Navbar.jsx'
 import Inicio from './pages/Inicio'
 import Footer from './components/Footer.jsx'
@@ -15,7 +16,8 @@ import PromocionesBancarias from "./pages/PromocionesBancarias";
 import Pagar from "./pages/Pagar.jsx"
 import RutasProtegidas from "./pages/RutaProtegida.jsx"
 import IniciarSesion from './pages/IniciarSesion.jsx'
-
+import Dashboard from "./pages/Dashboard.jsx";
+import FormularioProducto from "./components/FormularioProducto.jsx";
 
 function App() {
 
@@ -24,7 +26,9 @@ function App() {
   // const [usuario,setUsuario] = useState({nombre:"", email:""});
   
   return (
-    <AppProvider>
+    <AuthProvider>
+     <CarritoProvider>
+
         <Navbar />
         <Routes>
           <Route path='/' element={<Inicio />} />
@@ -35,7 +39,11 @@ function App() {
           <Route path='/contacto' element={<Contacto/>}/>
           <Route path='/iniciar-sesion' element={<IniciarSesion />}/>
           <Route path="/pagar" element={<RutasProtegidas> <Pagar/></RutasProtegidas> } />
-          
+          <Route path="/dashboard" element={<RutasProtegidas soloAdmin={true}><Dashboard /></RutasProtegidas>}/>
+
+            {/* RUTA PROTEGIDA - Admin */}
+            <Route path="/agregar-producto" element={<RutasProtegidas soloAdmin={true}><FormularioProducto /></RutasProtegidas>}/>
+        
           {/* Deja de ir  las propities en el componente, se reemplaza por el AppContext */}
           {/* <Route path='/iniciar-sesion' element={<IniciarSesion setIsAuthenticated={setIsAuthenticated} setUsuario={setUsuario}/>}/> */}         
           {/* <Route path="/pagar" element={
@@ -55,7 +63,8 @@ function App() {
         </Routes>
         <Footer />
         
-      </AppProvider>
+      </CarritoProvider>
+      </AuthProvider>
   )
 }
 export default App

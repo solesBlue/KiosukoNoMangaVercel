@@ -1,23 +1,32 @@
 import React, { useState } from 'react';
 import { useNavigate, useLocation } from 'react-router-dom';
-import { useAppContext } from '../context/AppContext';
+import { useAuthContext } from '../context/AuthContext';
 import '../assets/styles/iniciar-sesion.css'
+import Swal from 'sweetalert2';
 
 export default function IniciarSesion() {
+  const { iniciarSesion } = useAuthContext();
   const navigate = useNavigate();
   const ubicacion = useLocation();
  
-const { setIsAuthenticated, setUsuario } = useAppContext();
+// const { setIsAuthenticated, setUsuario } = useAppContext();
 
   const [formulario, setFormulario] = useState({ nombre: '', email: '', pass:'' });
 
   const manejarEnvio = (e) => {
     e.preventDefault();
-    if (formulario.nombre && formulario.pass) { // si el string esta vacio, lo toma como false
-      //esto me guarda el usuario y autentica
-      setIsAuthenticated(true);
-      setUsuario(formulario);
-     
+
+    //Verifico si es el administrador
+    if (formulario.nombre === "admin" && formulario.pass === "123Admin") {
+      // Guarda el email ingresado y pasa nombre para el token admin
+      localStorage.setItem("authEmail", formulario.email);
+      iniciarSesion("admin");
+      navigate("/dashboard");
+    } else //verifico que no es usuario administrador
+      if (formulario.nombre && formulario.pass && formulario.nombre !== "admin") { // si el string esta vacio, lo toma como false
+       localStorage.setItem("authEmail", formulario.email);
+       iniciarSesion(formulario.nombre);
+
       // Si venía del carrito, redirige a pagar
       if (ubicacion.state?.carrito) {
         navigate('/pagar', { state: { carrito: ubicacion.state.carrito } });
@@ -25,7 +34,11 @@ const { setIsAuthenticated, setUsuario } = useAppContext();
         navigate('/productos');
       }
     } else {
-      alert('Completa todos los datos');
+      // alert('Completa todos los datos');
+      Swal.fire({
+            icon: 'error',
+            // title: '¡Éxito!',
+            text: `Completa los dato obligatorios para ingresar.`})
     }
   };
   return (
@@ -58,6 +71,13 @@ const { setIsAuthenticated, setUsuario } = useAppContext();
             </button>
           </div>
         </form>
+              <p style={{ marginTop: "20px", fontSize: "12px", color: "#666" }}>
+        <strong>Credenciales de prueba para Dashboard:</strong>
+        <br />
+        Nombre: admin
+        <br />
+        Email: 1234@admin
+      </p>
       </div>      
     </div>
   );

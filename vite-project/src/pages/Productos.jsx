@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { useAppContext } from "../context/AppContext.jsx";
+import { useCarritoContext } from "../context/CarritoContext.jsx";
 import DetalleModal from './DetalleModal.jsx';
 import BannerTienda from "../components/BannerTienda.jsx";  
 import CarritoCompras from "./Carrito.jsx";
@@ -13,7 +13,7 @@ export default function Productos() {
   //Reemplazado por el apptextet
   // const [carrito, setCarrito] = useState([]);
 
-  const{ agregarAlCarrito} = useAppContext();
+  const{ agregarAlCarrito} = useCarritoContext();
 
   // estado del modal
   const [showModal, setShowModal] = useState(false);

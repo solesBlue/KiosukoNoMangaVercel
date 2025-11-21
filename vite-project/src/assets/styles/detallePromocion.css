@@ -1,0 +1,105 @@
+.detalle-container {
+  max-width: 700px;
+  margin: 2rem auto;
+  padding: 0 1rem;
+  font-family: "Segoe UI", sans-serif;
+}
+
+.btn-volver {
+  display: inline-block;
+  color: white;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 1rem;
+  margin-bottom: 1.5rem;
+  margin-top: 1.5rem;
+  transition: color 0.3s;
+  background-color: #062a41;
+  border-radius: 5px;
+}
+
+.btn-volver:hover {
+  color: #F5C518;
+}
+
+.promo-card {
+  background: white;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(209, 52, 44, 0.15);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  border: 1px solid #ffe0e0;
+}
+
+.promo-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 16px 40px rgba(209, 52, 44, 0.2);
+}
+
+.card-header {
+  background-color: #062a41;
+  padding: 1.5rem;
+  text-align: center;
+}
+
+.card-header h2{
+  color: #F5C518;
+}
+
+
+.card-body {
+  padding: 1.8rem;
+  text-align: center;  
+  font-family: 'Montserrat', sans-serif;
+
+}
+
+.card-title {
+  font-family:'Russo One', sans-serif;
+  font-size: 2rem;
+  color: #D1342C;
+  margin: 0 0 0.5rem;
+}
+
+.card-dias {
+  font-weight: bold;
+  color: #0F1C35;
+  font-size: 1.1rem;
+  margin: 0.5rem 0;
+}
+
+.card-oferta {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: #1a1a1a;
+  margin: 0.75rem 0;
+  line-height: 1.4;
+}
+
+.card-tarjeta {
+  color: #444;
+  font-size: 0.95rem;
+  margin: 0.75rem 0;
+}
+
+.card-legales {
+  font-size: 0.8rem;
+  color: #777;
+  background: #fdf2f2;
+  padding: 0.75rem;
+  border-radius: 8px;
+  margin: 1rem 0;
+  line-height: 1.5; 
+}
+
+.card-validez {
+  color: #D1342C;
+  font-weight: 500;
+  margin-top: 1rem;
+}
+
+/* Responsive */
+@media (max-width: 480px) {
+  .card-title { font-size: 1.6rem; }
+  .card-oferta { font-size: 1.1rem; }
+}

@@ -1,0 +1,65 @@
+.bannerContainer {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 25 / 5;
+  overflow: hidden; /* evita que elementos se salgan */
+}
+
+.bannerTienda {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.bannerTexto {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  text-align: center;
+  background: rgba(0, 0, 0, 0.4);
+  padding: 1rem 2rem;
+  border-radius: 8px; /* opcional */
+  max-width: 90%; /* limita el ancho para no desbordar en pantallas grandes */
+}
+
+.bannerTexto h2 {
+  font-size: 1.8rem;
+  margin-bottom: 0.5rem;
+  color: #F5C518;
+}
+
+.bannerTexto p {
+  font-size: 0.8rem;
+  font-family:'Russo One', sans-serif;
+}
+
+@media (min-width: 640px) {
+  .bannerContainer {
+    aspect-ratio: 16 / 4;
+  }
+  .bannerTexto h2 {
+    font-size: 1.8rem;
+  }
+  .bannerTexto p {
+    font-size: 1rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .bannerContainer {
+    aspect-ratio: 16 / 3;
+  }
+  .bannerTexto h2 {
+    font-size: 2.2rem;
+  }
+  .bannerTexto p {
+    font-size: 1.2rem;
+  }
+}

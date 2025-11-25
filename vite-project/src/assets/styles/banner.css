@@ -2,7 +2,8 @@
   position: relative;
   width: 100%;
   aspect-ratio: 25 / 5;
-  overflow: hidden; /* evita que elementos se salgan */
+  overflow: hidden;
+  display: block;
 }
 
 .bannerTienda {
@@ -10,45 +11,54 @@
   height: 100%;
   object-fit: cover;
   display: block;
+  position: absolute;
+  object-fit: cover;
+  object-position: center;
+}
+
+.bannerOverlay {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1.25rem;
 }
 
 .bannerTexto {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
   color: white;
   text-align: center;
-  background: rgba(0, 0, 0, 0.4);
-  padding: 1rem 2rem;
-  border-radius: 8px; /* opcional */
-  max-width: 90%; /* limita el ancho para no desbordar en pantallas grandes */
+  background: rgba(0, 0, 0, 0.35);
+  padding: 1rem 1.25rem;
+  border-radius: 12px;
+  max-width: 980px;
+  width: 100%;
 }
 
-.bannerTexto h2 {
-  font-size: 1.8rem;
-  margin-bottom: 0.5rem;
+.h2-banner {
+  margin: 0 0 0.5rem 0;
   color: #F5C518;
+  font-family: 'Russo One', sans-serif;
+  font-weight: 700;
+  line-height: 1.05;
+  text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.6);
 }
 
-.bannerTexto p {
-  font-size: 0.8rem;
-  font-family:'Russo One', sans-serif;
+.banner-texto-secundario {
+  margin: 0;
+  font-family: "Oswald", sans-serif;
+  color: #FFFFFF;
+  opacity: 0.95;
+  text-shadow: 1px 1px 8px rgba(0, 0, 0, 0.55);
 }
 
+/*--------------Responsive-------------- */
 @media (min-width: 640px) {
   .bannerContainer {
     aspect-ratio: 16 / 4;
   }
-  .bannerTexto h2 {
-    font-size: 1.8rem;
-  }
-  .bannerTexto p {
-    font-size: 1rem;
+  .bannerTexto {
+    padding: 1.5rem 2rem;
   }
 }
 
@@ -56,10 +66,23 @@
   .bannerContainer {
     aspect-ratio: 16 / 3;
   }
-  .bannerTexto h2 {
-    font-size: 2.2rem;
+  .h2-banner {
+    font-size: clamp(1.8rem, 2.6vw, 2.6rem);
   }
-  .bannerTexto p {
-    font-size: 1.2rem;
+  .banner-texto-secundario {
+    font-size: 1.1rem;
+  }
+}
+
+@media (max-width: 420px) {
+  .bannerTexto {
+    padding: .75rem 1rem;
+    border-radius: 8px;
+  }
+  .h2-banner {
+    font-size: 1.4rem;
+  }
+  .banner-texto-secundario {
+    font-size: 0.9rem;
   }
 }

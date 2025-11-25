@@ -1,118 +1,81 @@
-// import React, { useState } from "react";
-// import dragon from "../assets/img/gokuVsVegeta.png";
-// import onePiece from "../assets/img/onePiece.png";
-// import sailorMoon from "../assets/img/sailorMoon.png";
-// import naruto from "../assets/img/naruto.png";
-
-// export default function Carousel() {
-//   const images = [dragon, onePiece, sailorMoon,naruto];
-//   const [index, setIndex] = useState(0);
-
-//   const nextSlide = () => setIndex((index + 1) % images.length);
-//   const prevSlide = () =>
-//     setIndex((index - 1 + images.length) % images.length);
-
-//   return (
-//     <div style={{ width: "20%", margin: "0 auto", textAlign: "center" }}>
-      
-//       <img
-//         src={images[index]}
-//         alt={`Slide ${index}`}
-//         style={{ width: "100%", height: "auto" , marginTop: "20px"  }}
-//       />
-//       {/* <button onClick={prevSlide}>{"<"}</button> */}
-//       <button onClick={prevSlide}>{<i className="fa-solid fa-backward"></i>}</button>
-//       <button onClick={nextSlide}>{<i className="fa-solid fa-forward"></i>}</button>  
-//     </div>
-//   );
-// }
-
-// src/components/Carousel.jsx
-import React, { useState, useEffect, useRef } from "react";
+import React from "react";
 import dragon from "../assets/img/gokuVsVegeta.png";
 import onePiece from "../assets/img/onePiece.png";
 import sailorMoon from "../assets/img/sailorMoon.png";
 import naruto from "../assets/img/naruto.png";
-import "../assets/styles/carousel.css"
 
-const images = [
-  { src: dragon, alt: "Goku vs Vegeta" },
-  { src: onePiece, alt: "One Piece" },
-  { src: sailorMoon, alt: "Sailor Moon" },
-  { src: naruto, alt: "Naruto" },
-];
+import "../assets/styles/carousel.css";
 
-export default function Carousel() {
-  const [index, setIndex] = useState(0);
-  const timeoutRef = useRef(null);
-
-  const resetTimeout = () => {
-    if (timeoutRef.current) clearTimeout(timeoutRef.current);
-  };
-
-  const nextSlide = () => {
-    setIndex((prev) => (prev + 1) % images.length);
-  };
-
-  const prevSlide = () => {
-    setIndex((prev) => (prev - 1 + images.length) % images.length);
-  };
-
-  const goToSlide = (i) => {
-    setIndex(i);
-  };
-
-  // Auto-play (opcional)
-  useEffect(() => {
-    resetTimeout();
-    timeoutRef.current = setTimeout(nextSlide, 4000); // 4 segundos
-    return () => resetTimeout();
-  }, [index]);
-
-  // Navegación con teclado
-  useEffect(() => {
-    const handleKey = (e) => {
-      if (e.key === "ArrowRight") nextSlide();
-      if (e.key === "ArrowLeft") prevSlide();
-    };
-    window.addEventListener("keydown", handleKey);
-    return () => window.removeEventListener("keydown", handleKey);
-  }, []);
+export default function Carrusel() {
+  const images = [
+    { src: dragon, alt: "Goku vs Vegeta - Dragon Ball Z" },
+    { src: onePiece, alt: "One Piece - Los Mugiwara" },
+    { src: sailorMoon, alt: "Sailor Moon - Edición Especial" },
+    { src: naruto, alt: "Naruto Shippuden - Colección Completa" },
+  ];
 
   return (
-    <div className="carousel-container">
-      <div><p>Los más vendidos</p></div>
-      <div className="carousel"> 
-        <button className="nav-btn prev" onClick={prevSlide} aria-label="Anterior">
-          <i className="fas fa-chevron-left"></i>
-        </button>
+    <div className="container-fluid px-0 my-4">
+      <h4 className="text-center mb-1 text-black text-carrusel" >
+        Los más vendidos
+      </h4>
 
-        <div className="slides" style={{ transform: `translateX(-${index * 100}%)` }}>
-          {images.map((img, i) => (
+      <div id="carruselDestacados" className="carousel slide shadow-lg" data-bs-ride="carousel">
+        
+        <div className="carousel-indicators">
+          {images.map((_, index) => (
+            <button
+              key={index}
+              type="button"
+              data-bs-target="#carruselDestacados"
+              data-bs-slide-to={index}
+              className={index === 0 ? "active" : ""}
+              aria-current={index === 0 ? "true" : undefined}
+              aria-label={`Slide ${index + 1}`}
+            />
+          ))}
+        </div>
+        <div className="carousel-inner rounded-3 overflow-hidden">
+          {images.map((img, index) => (
             <div
-              key={i}
-              className="slide"
-              style={{ opacity: i === index ? 1 : 0 }}
+              key={index}
+              className={`carousel-item ${index === 0 ? "active" : ""}`}
+              data-bs-interval="4000"
             >
-              <img src={img.src} alt={img.alt} />
+              <img
+                src={img.src}
+                className="d-block w-100"
+                alt={img.alt}
+                style={{ 
+                  height: "200px", 
+                  objectFit: "cover",
+                  objectPosition: "center"
+                }}
+              />
+              <div className="carousel-caption d-none d-md-block bg-dark bg-opacity-75 rounded p-3">
+                <h5 className="fw-bold text-warning">{img.alt}</h5>
+              </div>
             </div>
           ))}
         </div>
-
-        <button className="nav-btn next" onClick={nextSlide} aria-label="Siguiente">
-          <i className="fas fa-chevron-right"></i>
+        <button
+          className="carousel-control-prev"
+          type="button"
+          data-bs-target="#carruselDestacados"
+          data-bs-slide="prev"
+        >
+          <span className="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span className="visually-hidden">Anterior</span>
         </button>
-      </div>
-
-      <div className="dots">
-        {images.map((_, i) => (
-          <button
-            key={i}
-            className={`dot ${i === index ? "active" : ""}`}
-            onClick={() => goToSlide(i)}
-            aria-label={`Ir a diapositiva ${i + 1}`}
-          />
-        ))}
+        <button
+          className="carousel-control-next"
+          type="button"
+          data-bs-target="#carruselDestacados"
+          data-bs-slide="next"
+        >
+          <span className="carousel-control-next-icon" aria-hidden="true"></span>
+          <span className="visually-hidden">Siguiente</span>
+        </button>
       </div>
     </div>
   );

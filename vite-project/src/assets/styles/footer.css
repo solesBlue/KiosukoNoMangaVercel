@@ -1,117 +1,51 @@
-.footer {
-  background-color: #D1342C;
-  color: white;
-  padding: 2.5rem 1rem 1rem;
-  font-family: 'Segoe UI', sans-serif;
-  /* margin-top: 3rem; */
+.footer-bg-color {
+  background-color: #D1342C !important;
 }
 
-.footer-container {
-  max-width: 1200px;
-  margin: 0 auto;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-  gap: 2rem;
-  padding-bottom: 1.5rem;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
-}
-
-.footer-section {
-  flex: 1;
-  min-width: 220px;
-  text-align: center;
-}
-
-.footer-section h3 {
+footer h2 {
   font-family: 'Bungee', sans-serif;
   font-size: 1.3rem;
   margin-bottom: 1rem;
-  color: #0F1C35;
-  text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+  color:#FFCC33; 
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
 }
 
-.icon-group {
-  display: flex;
-  justify-content: center;
-  gap: 1.2rem;
-  margin-top: 0.5rem;
+footer h5{
+ font-family: "Luckiest Guy", cursive;
+ color:#FFCC33;
+ text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+ letter-spacing: 2px;
 }
 
-.icon-group i,
-.icon-group a {
-  font-size: 1.8rem;
-  color: white;
-  transition: all 0.3s ease;
+.p-fonts-footer{
+  font-family: 'Oswald', sans-serif;
 }
 
-.icon-group a:hover i {
-  color: #0F1C35;
-  transform: translateY(-3px) scale(1.1);
-}
-
-.contact-info p {
-  margin: 0.6rem 0;
-  font-size: 0.95rem;
-  display: flex;
+.social-icon {
+  display: inline-flex;
   align-items: center;
   justify-content: center;
-  gap: 0.5rem;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  transition: all 0.3s ease;
+  backdrop-filter: blur(5px);
 }
 
-.contact-info i {
-  font-size: 1.1rem;
-  color: #D1342C;
+.social-icon:hover {
+  transform: translateY(-5px) scale(1.15);
+  background-color: var(--bs-warning);
+  color: #000 !important;
+  box-shadow: 0 10px 20px rgba(255, 193, 7, 0.4);
 }
 
-.contact-info a {
-  color: white;
-  text-decoration: none;
+footer div ul li a {
   transition: color 0.3s;
+  text-decoration: none ;
+  font-family: "Architects Daughter", cursive;
 }
 
-.contact-info a:hover {
-  color: #0F1C35;
-}
-
-.footer-bottom {
-  text-align: center;
-  margin-top: 1.5rem;
-  font-size: 0.85rem;
-  opacity: 0.9;
-}
-
-/* Responsive */
-@media (max-width: 768px) {
-  .footer-container {
-    flex-direction: column;
-    text-align: center;
-  }
-  
-  .footer-section {
-    min-width: auto;
-  }
-  
-  .icon-group {
-    justify-content: center;
-  }
-  
-  .contact-info p {
-    justify-content: center;
-  }
-}
-
-@media (max-width: 480px) {
-  .footer {
-    padding: 2rem 1rem 1rem;
-  }
-  
-  .icon-group i,
-  .icon-group a {
-    font-size: 1.6rem;
-  }
-  
-  .footer-section h3 {
-    font-size: 1.2rem;
-  }
+footer div ul li a:hover {
+  transition: color 0.3s;
+  text-decoration: underline !important;
 }

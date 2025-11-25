@@ -1,5 +1,6 @@
 import React, { createContext, useContext, useState } from "react";
 import Swal from 'sweetalert2';
+import { toast } from 'react-toastify';
 
 // Crear el contexto
 export const CarritoContext = createContext();
@@ -9,24 +10,31 @@ export function CarritoProvider({ children }) {
 
   // Estado del carrito
   const [carrito, setCarrito] = useState([]);
-  
-  const agregarAlCarrito = (producto) =>{
-    setCarrito ( prevCarrito => {
-      const productoExistente = prevCarrito.find (item => item.id === producto.id);
+
+  const agregarAlCarrito = (producto) => {
+    setCarrito(prevCarrito => {
+      const productoExistente = prevCarrito.find(item => item.id === producto.id);
       if (productoExistente) {
         return prevCarrito.map(item =>
           item.id === producto.id
-          ? {...item, cantidad: (item.cantidad || 1) +1}
-          : item
+            ? { ...item, cantidad: (item.cantidad || 1) + 1 }
+            : item
         );
       } else {
-        return [...prevCarrito, {...producto, cantidad: 1}];
+        return [...prevCarrito, { ...producto, cantidad: 1 }];
       }
-      });
-     Swal.fire({
-      icon: 'success',
-      title: '¡Éxito!',
-      text: `El producto ${producto.name || producto.nombre} ha sido agregado al carrito.`})
+    });
+
+    toast.success(` ${producto.name || producto.nombre} fue agregado al carrito!`, {
+      position: "top-right",
+      autoClose: 2800,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      icon: <i className="fa-solid fa-cart-plus text-success fs-4"></i>,
+    });
+
   }
 
 
@@ -37,8 +45,8 @@ export function CarritoProvider({ children }) {
   const eliminarDelCarrito = (productoId) => {
     setCarrito(carrito.filter(item => item.id !== productoId));
   };
- 
-     const quitarCantidad = (idProducto) => {
+
+  const quitarCantidad = (idProducto) => {
     const carritoActualizado = carrito.map(producto => {
       if (producto.id === idProducto) {
         const cantidadActual = producto.cantidad || 1;
@@ -75,7 +83,7 @@ export function CarritoProvider({ children }) {
 
   // Valor que se provee a todos los componentes
   const value = {
-     // Carrito
+    // Carrito
     carrito,
     agregarAlCarrito,
     vaciarCarrito,

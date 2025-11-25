@@ -5,7 +5,7 @@
   font-family: "Segoe UI", sans-serif;
 }
 
-.btn-volver {
+/* .btn-volver {
   display: inline-block;
   color: white;
   text-decoration: none;
@@ -16,7 +16,7 @@
   transition: color 0.3s;
   background-color: #062a41;
   border-radius: 5px;
-}
+} */
 
 .btn-volver:hover {
   color: #F5C518;

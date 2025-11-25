@@ -1,15 +1,19 @@
 import './App.css'
-import React,{ useState } from 'react'
+import React, { useState } from 'react'
 import { Routes, Route } from 'react-router-dom'
 import { AuthProvider } from "./context/AuthContext";
 import { CarritoProvider } from "./context/CarritoContext";
-import Navbar from './components/Navbar.jsx'
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
+
+import Navbar from './pages/Navbar.jsx'
 import Inicio from './pages/Inicio'
-import Footer from './components/Footer.jsx'
+import Footer from './pages/Footer.jsx'
 import Contacto from './pages/Contacto.jsx'
 import Productos from './pages/Productos.jsx';
 import ProductoDetalle from './pages/DetalleProductos.jsx';
-import DetallePromociones from "./pages/DetallePromociones";import notFoundImage from './assets/img/Error404.png'
+import DetallePromociones from "./pages/DetallePromociones"; import notFoundImage from './assets/img/Error404.png'
 import CarritoCompras from './pages/Carrito.jsx'
 import Error404 from './components/Error404.jsx'
 import PromocionesBancarias from "./pages/PromocionesBancarias";
@@ -24,28 +28,43 @@ function App() {
   //propierties
   // const [isAuthenticated, setIsAuthenticated] = useState(false);
   // const [usuario,setUsuario] = useState({nombre:"", email:""});
-  
+
   return (
     <AuthProvider>
-     <CarritoProvider>
+      <CarritoProvider>
 
         <Navbar />
+
+        <ToastContainer
+          position="top-right"
+          autoClose={2800}
+          hideProgressBar={false}
+          newestOnTop
+          closeOnClick
+          pauseOnHover
+          draggable
+          theme="light"
+          toastStyle={{ borderRadius: "14px" }}
+          toastClassName="rounded-3 shadow-lg border-0"
+        />
+
         <Routes>
           <Route path='/' element={<Inicio />} />
-          <Route path='/productos' element={<Productos/>} />
+          <Route path='/productos' element={<Productos />} />
           <Route path='/productos/:id' element={<ProductoDetalle />} />
-          <Route path='/productos/:categoria/:id' element={<ProductoDetalle/>} />
+          <Route path='/productos/:categoria/:id' element={<ProductoDetalle />} />
           {/* <Route path='/carritocompras' element={<CarritoCompras/>}/> */}
-          <Route path='/contacto' element={<Contacto/>}/>
-          <Route path='/iniciar-sesion' element={<IniciarSesion />}/>
-          <Route path="/pagar" element={<RutasProtegidas> <Pagar/></RutasProtegidas> } />
-          <Route path="/dashboard" element={<RutasProtegidas soloAdmin={true}><Dashboard /></RutasProtegidas>}/>
+          <Route path='/contacto' element={<Contacto />} />
+          <Route path="/carrito" element={<CarritoCompras />} />
+          <Route path='/iniciar-sesion' element={<IniciarSesion />} />
+          <Route path="/pagar" element={<RutasProtegidas> <Pagar /></RutasProtegidas>} />
+          <Route path="/dashboard" element={<RutasProtegidas soloAdmin={true}><Dashboard /></RutasProtegidas>} />
 
-            {/* RUTA PROTEGIDA - Admin */}
-            <Route path="/agregar-producto" element={<RutasProtegidas soloAdmin={true}><FormularioProducto /></RutasProtegidas>}/>
-        
+          {/* RUTA PROTEGIDA - Admin */}
+          <Route path="/agregar-producto" element={<RutasProtegidas soloAdmin={true}><FormularioProducto /></RutasProtegidas>} />
+
           {/* Deja de ir  las propities en el componente, se reemplaza por el AppContext */}
-          {/* <Route path='/iniciar-sesion' element={<IniciarSesion setIsAuthenticated={setIsAuthenticated} setUsuario={setUsuario}/>}/> */}         
+          {/* <Route path='/iniciar-sesion' element={<IniciarSesion setIsAuthenticated={setIsAuthenticated} setUsuario={setUsuario}/>}/> */}
           {/* <Route path="/pagar" element={
               <RutasProtegidas isAuthenticated={isAuthenticated}>
                 <Pagar
@@ -59,21 +78,21 @@ function App() {
           <Route path="/promociones" element={<PromocionesBancarias />} />
           <Route path="/promociones/detalle/:banco/:id" element={<DetallePromociones />} />
           <Route path="/" element={<PromocionesBancarias />} />
-          <Route path='*' element={<Error404/>} />
+          <Route path='*' element={<Error404 />} />
         </Routes>
         <Footer />
-        
+
       </CarritoProvider>
-      </AuthProvider>
+    </AuthProvider>
   )
 }
 export default App
 
 
 
-function FormularioContacto(){
+function FormularioContacto() {
 
-  const[formulario, setFormulario] = useState({
+  const [formulario, setFormulario] = useState({
     nombre: '',
     correo: '',
     celular: ''
@@ -99,48 +118,48 @@ function FormularioContacto(){
     });
   }
 
-  return(
+  return (
     <>
       <form onSubmit={manejarEnvio} className='formularioContacto'>
         <div className='form-grupo'>
           <label>Apellido y Nombre:</label>
-          <input 
-            type="text" 
+          <input
+            type="text"
             name="nombre"
-            value={formulario.nombre} 
-            onChange={manejarCambio} 
+            value={formulario.nombre}
+            onChange={manejarCambio}
             placeholder='Ingrese su Apellido y Nombre'
           />
-        </div>  
-        <div className='form-grupo'> 
+        </div>
+        <div className='form-grupo'>
           <label>Correo:</label>
-          <input 
-            type="email" 
+          <input
+            type="email"
             name="correo"
-            value={formulario.correo} 
-            onChange={manejarCambio} 
+            value={formulario.correo}
+            onChange={manejarCambio}
             placeholder='Ingrese su correo'
           />
         </div>
         <div className='form-grupo'>
           <label>Teléfono Celular:</label>
-          <input 
-            type="text" 
+          <input
+            type="text"
             name="celular"
-            value={formulario.celular} 
-            onChange={manejarCambio} 
+            value={formulario.celular}
+            onChange={manejarCambio}
             placeholder='Ingrese su teléfono celular'
           />
         </div>
         <hr />
-        <div className='form-grupo-botones'> 
+        <div className='form-grupo-botones'>
           <button type="submit" className='btn btnEnviar'>Enviar</button>
-          <button type="button" onClick={() => setFormulario({nombre: '', correo: '', celular: ''})} className='btn btnCancelar'>Limpiar</button>
+          <button type="button" onClick={() => setFormulario({ nombre: '', correo: '', celular: '' })} className='btn btnCancelar'>Limpiar</button>
         </div>
       </form>
 
     </>
-  );  
-} export { FormularioContacto }; 
+  );
+} export { FormularioContacto };
 
 

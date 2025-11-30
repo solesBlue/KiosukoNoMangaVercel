@@ -144,8 +144,8 @@
   font-family: "Oswald", sans-serif !important;
 }
 
-.producto-precio{
-    color: #D1342C;
+.producto-precio {
+  color: #D1342C;
 }
 
 #lista-productos {
@@ -396,27 +396,35 @@
 /*------------------Toastify---------------------*/
 .Toastify__toast {
   border-radius: 16px !important;
-  font-weight: 600 !important;
-  font-size: 1rem !important;
+  font-weight: bold !important;
   padding: 16px 20px !important;
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2) !important;
   min-height: 90px !important;
-  /* font-family: 'Montserrat', sans-serif; */
-  width: 550px !important;
-  font-family: 'Architects Daughter', cursive;
+  min-width: 100px !important;
+  width: auto !important  ;
 }
 
-
-.Toastify__toast--success {
-  background: #F6F1E9 !important;
-  color: black !important;
+.Toastify__toast-body {
+  display: flex !important;
+  align-items: start !important;
+  gap: 10px !important;
+  text-align: left !important;           
+  justify-content: flex-start !important; 
+  flex: 1 !important; 
+  /* direction: ltr !important;                    */
 }
 
+.Toastify__toast--success,
 .Toastify__toast--error {
-  background: #b02a24 !important;
-  color: white !important;
+  background: white !important;
+  color: black !important;
+  font-family: 'Architects Daughter', cursive !important;
 }
 
+.Toastify__toast-icon {
+  align-self: center !important;
+  flex-shrink: 0 !important; 
+}
 .Toastify__toast--warn {
   background: #F5C518 !important;
   color: #0F1C35 !important;
@@ -433,7 +441,7 @@
 }
 
 .Toastify__progress-bar--error {
-  background: #F6F1E9 !important;
+  background: #b02a24 !important;
 }
 
 .Toastify__progress-bar--warn {
@@ -453,4 +461,21 @@
 .Toastify__close-button:hover {
   opacity: 1 !important;
   transform: scale(1.1);
+}
+
+
+/*-----------------Agregar producto--------------*/
+
+#ABM_Producto {
+  font-family: 'Bangers', cursive;
+  color: #D1342C;
+}
+
+/*------------------Elimnar producto--------------*/
+
+.item-imagen-eliminar {
+  width: 200px;
+  height: 250px;
+  object-fit: cover;
+  border-radius: 8px;
 }

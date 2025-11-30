@@ -21,7 +21,8 @@ import Pagar from "./pages/Pagar.jsx"
 import RutasProtegidas from "./pages/RutaProtegida.jsx"
 import IniciarSesion from './pages/IniciarSesion.jsx'
 import Dashboard from "./pages/Dashboard.jsx";
-import FormularioProducto from "./components/FormularioProducto.jsx";
+import GestionarProducto from './components/GestionarProducto.jsx';
+import EliminarProducto from './components/EliminarProducto.jsx';
 
 function App() {
 
@@ -61,8 +62,9 @@ function App() {
           <Route path="/dashboard" element={<RutasProtegidas soloAdmin={true}><Dashboard /></RutasProtegidas>} />
 
           {/* RUTA PROTEGIDA - Admin */}
-          <Route path="/agregar-producto" element={<RutasProtegidas soloAdmin={true}><FormularioProducto /></RutasProtegidas>} />
-
+          <Route path="/gestionar-producto/agregar-producto" element={<RutasProtegidas soloAdmin={true}><GestionarProducto /></RutasProtegidas>} />
+          <Route path="/gestionar-producto/editar-producto/:id" element={<RutasProtegidas soloAdmin={true}><GestionarProducto /></RutasProtegidas>} />
+          <Route path="/gestionar-producto/eliminar-producto/:id" element={<RutasProtegidas soloAdmin={true}><EliminarProducto /></RutasProtegidas>} />
           {/* Deja de ir  las propities en el componente, se reemplaza por el AppContext */}
           {/* <Route path='/iniciar-sesion' element={<IniciarSesion setIsAuthenticated={setIsAuthenticated} setUsuario={setUsuario}/>}/> */}
           {/* <Route path="/pagar" element={

@@ -23,6 +23,8 @@ import IniciarSesion from './pages/IniciarSesion.jsx'
 import Dashboard from "./pages/Dashboard.jsx";
 import GestionarProducto from './components/GestionarProducto.jsx';
 import EliminarProducto from './components/EliminarProducto.jsx';
+import RegistrarUsuario from './pages/RegistrarUsuario.jsx'
+import RestablecerPassword from './pages/RestablecerPassword.jsx'
 
 function App() {
 
@@ -58,6 +60,10 @@ function App() {
           <Route path='/contacto' element={<Contacto />} />
           <Route path="/carrito" element={<CarritoCompras />} />
           <Route path='/iniciar-sesion' element={<IniciarSesion />} />
+          <Route path='/registrar-usuario' element={<RegistrarUsuario />} />
+          <Route path='/restablecer-password' element={<RestablecerPassword />} />
+
+
           <Route path="/pagar" element={<RutasProtegidas> <Pagar /></RutasProtegidas>} />
           <Route path="/dashboard" element={<RutasProtegidas soloAdmin={true}><Dashboard /></RutasProtegidas>} />
 

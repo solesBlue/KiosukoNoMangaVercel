@@ -262,10 +262,6 @@
   gap: 0.4rem !important;
 }
 
-/* .text-breadcrumb {
-  font-family: 'Fjalla One', sans-serif;
-} */
-
 
 /****************Promociones Bancarias******************/
 
@@ -401,17 +397,16 @@
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2) !important;
   min-height: 90px !important;
   min-width: 100px !important;
-  width: auto !important  ;
+  width: auto !important;
 }
 
 .Toastify__toast-body {
   display: flex !important;
   align-items: start !important;
   gap: 10px !important;
-  text-align: left !important;           
-  justify-content: flex-start !important; 
-  flex: 1 !important; 
-  /* direction: ltr !important;                    */
+  text-align: left !important;
+  justify-content: flex-start !important;
+  flex: 1 !important;
 }
 
 .Toastify__toast--success,
@@ -423,9 +418,10 @@
 
 .Toastify__toast-icon {
   align-self: center !important;
-  flex-shrink: 0 !important; 
+  flex-shrink: 0 !important;
 }
-.Toastify__toast--warn {
+
+/* .Toastify__toast--warn {
   background: #F5C518 !important;
   color: #0F1C35 !important;
 }
@@ -433,7 +429,7 @@
 .Toastify__toast--info {
   background: #0F1C35 !important;
   color: #F6F1E9 !important;
-}
+} */
 
 
 .Toastify__progress-bar--success {
@@ -444,13 +440,13 @@
   background: #b02a24 !important;
 }
 
-.Toastify__progress-bar--warn {
+/* .Toastify__progress-bar--warn {
   background: #0F1C35 !important;
 }
 
 .Toastify__progress-bar--info {
   background: #F5C518 !important;
-}
+} */
 
 .Toastify__close-button {
   color: gray !important;
@@ -478,4 +474,13 @@
   height: 250px;
   object-fit: cover;
   border-radius: 8px;
+}
+
+/*-----------------------Card-----------------------*/
+.card-title-config {
+  font-family: 'Permanent Marker', sans-serif !important;
+  text-align: center;
+  margin-top: 5px;
+  padding-top: 5px;
+
 }

@@ -121,7 +121,7 @@ function Navbar() {
                   {isAuthenticated ? (
                     <div className="d-flex align-items-center gap-3">
                       <span className="text-menu fw-bold text-black">
-                        Hola, {usuario.nombre.split(" ")[0]}
+                        Hola, {usuario.email.split(" ")[0]}
                       </span>
                       <button
                         onClick={cerrarSesion}

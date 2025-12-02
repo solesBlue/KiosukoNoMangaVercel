@@ -380,7 +380,8 @@ function GestionarProducto() {
                 required></input>
               <div className="invalid-feedback">
                 {errores.precio || 'Ingrese el precio por unidad.'}
-              </div>  </div>
+              </div>
+            </div>
             <div className="col">
               <label htmlFor="validationInputStock" className="form-label fw-bold">Stock Inicial:</label>
               <input type="number"
@@ -401,6 +402,14 @@ function GestionarProducto() {
           </div>
 
           <div className="d-grid d-md-flex gap-3 justify-content-md-end">
+
+            <button
+              type="button"
+              className="btn btn-secondary btn-lg px-4 fw-bold"
+              onClick={() => navigate('/dashboard')}
+              disabled={cargando}
+            > Cancelar
+            </button>
             {modo === 'agregar' && (
               <button
                 type="button"
@@ -410,19 +419,19 @@ function GestionarProducto() {
               >Limpiar
               </button>
             )}
-            {modo === 'editar' && (
-              <button
+            {/* {modo === 'editar' && ( */}
+            {/* <button
                 type="button"
                 className="btn btn-secondary btn-lg px-4 fw-bold"
                 onClick={() => navigate('/dashboard')}
                 disabled={cargando}
               > Cancelar
-              </button>
-            )}
+              </button> */}
+            {/* )} */}
 
             <button type="submit" className="btn btn-success btn-lg px-4 fw-bold" disabled={cargando}>
               {cargando ? `${modo === 'editar' ? 'Actualizando...' : 'Agregando...'}` :
-                `${modo === 'agregar' ? 'Agregar Producto' : 'Actualizar'}`}
+                `${modo === 'agregar' ? 'Agregar' : 'Actualizar'}`}
             </button>
           </div>
 

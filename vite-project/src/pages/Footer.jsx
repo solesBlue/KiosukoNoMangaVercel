@@ -71,7 +71,7 @@ export default function Footer() {
         <hr className="border-secondary mt-5 mb-4" />
         <div className="text-center">
           <p className="mb-0 small text-white-50">
-            © 2025 <strong className="text-white">Kiosuko no Manga</strong> • Todos los derechos reservados
+            © 2025 <strong className="text-white">Kiosuko no Manga</strong> • Todos los derechos reservados • Diseñado por Natalia Coronel
           </p>
         </div>
       </div>

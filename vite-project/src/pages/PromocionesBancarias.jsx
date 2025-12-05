@@ -56,7 +56,7 @@ function PromocionesBancarias() {
                     className="img-fluid mb-3 "
                     style={{ maxHeight: "140px", objectFit: "contain" }}
                   />
-                  <h5 className="card-title fw-bold  text-titulo">{promo.banco}</h5>
+                  <h6 className="card-title fw-bold  text-titulo">{promo.banco}</h6>
                   <p className="text-muted small mb-2">{promo.dias}</p>
                   <p className="card-text fw-medium">{promo.promocion}</p>
                 </div>

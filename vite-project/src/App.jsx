@@ -24,6 +24,7 @@ import GestionarProducto from './components/GestionarProducto.jsx';
 import EliminarProducto from './components/EliminarProducto.jsx';
 import RegistrarUsuario from './pages/RegistrarUsuario.jsx'
 import RestablecerPassword from './pages/RestablecerPassword.jsx'
+import QuienesSomos from  './pages/QuienesSomos.jsx'
 
 function App() {
 
@@ -55,6 +56,7 @@ function App() {
           <Route path='/productos' element={<Productos />} />
           <Route path='/productos/:id' element={<Productos />} />
           <Route path='/productos/:categoria/:id' element={<Productos />} />
+          <Route path='/quienes-somos' element={<QuienesSomos />} />
           <Route path='/contacto' element={<Contacto />} />
           <Route path="/carrito" element={<CarritoCompras />} />
           <Route path='/iniciar-sesion' element={<IniciarSesion />} />
@@ -85,76 +87,74 @@ export default App
 
 
 
-function FormularioContacto() {
+// function FormularioContacto() {
 
-  const [formulario, setFormulario] = useState({
-    nombre: '',
-    correo: '',
-    celular: ''
-  });
+//   const [formulario, setFormulario] = useState({
+//     nombre: '',
+//     correo: '',
+//     celular: ''
+//   });
 
-  const manejarCambio = (evento) => {
-    setFormulario({
-      ...formulario, // operador de propagación o spread oeprator. Mantiene los valores exsistentes
-      [evento.target.name]: evento.target.value, //Actualiza solo el campo que cambio
-    });
-  };
+//   const manejarCambio = (evento) => {
+//     setFormulario({
+//       ...formulario, 
+//       [evento.target.name]: evento.target.value, 
+//     });
+//   };
 
-  //Ejecuta al enviar el formulario
-  const manejarEnvio = (evento) => {
-    evento.preventDefault();
-    console.log('Datos enviados:', formulario);
+//   const manejarEnvio = (evento) => {
+//     evento.preventDefault();
+//     console.log('Datos enviados:', formulario);
 
-    //Limpia los campos despues de enviar
-    setFormulario({
-      nombre: '',
-      correo: '',
-      celular: ''
-    });
-  }
+//     setFormulario({
+//       nombre: '',
+//       correo: '',
+//       celular: ''
+//     });
+//   }
 
-  return (
-    <>
-      <form onSubmit={manejarEnvio} className='formularioContacto'>
-        <div className='form-grupo'>
-          <label>Apellido y Nombre:</label>
-          <input
-            type="text"
-            name="nombre"
-            value={formulario.nombre}
-            onChange={manejarCambio}
-            placeholder='Ingrese su Apellido y Nombre'
-          />
-        </div>
-        <div className='form-grupo'>
-          <label>Correo:</label>
-          <input
-            type="email"
-            name="correo"
-            value={formulario.correo}
-            onChange={manejarCambio}
-            placeholder='Ingrese su correo'
-          />
-        </div>
-        <div className='form-grupo'>
-          <label>Teléfono Celular:</label>
-          <input
-            type="text"
-            name="celular"
-            value={formulario.celular}
-            onChange={manejarCambio}
-            placeholder='Ingrese su teléfono celular'
-          />
-        </div>
-        <hr />
-        <div className='form-grupo-botones'>
-          <button type="submit" className='btn btnEnviar'>Enviar</button>
-          <button type="button" onClick={() => setFormulario({ nombre: '', correo: '', celular: '' })} className='btn btnCancelar'>Limpiar</button>
-        </div>
-      </form>
+//   return (
+//     <>
+//       <form onSubmit={manejarEnvio} className='formularioContacto'>
+//         <div className='form-grupo'>
+//           <label>Apellido y Nombre:</label>
+//           <input
+//             type="text"
+//             name="nombre"
+//             value={formulario.nombre}
+//             onChange={manejarCambio}
+//             placeholder='Ingrese su Apellido y Nombre'
+//           />
+//         </div>
+//         <div className='form-grupo'>
+//           <label>Correo:</label>
+//           <input
+//             type="email"
+//             name="correo"
+//             value={formulario.correo}
+//             onChange={manejarCambio}
+//             placeholder='Ingrese su correo'
+//           />
+//         </div>
+//         <div className='form-grupo'>
+//           <label>Teléfono Celular:</label>
+//           <input
+//             type="text"
+//             name="celular"
+//             value={formulario.celular}
+//             onChange={manejarCambio}
+//             placeholder='Ingrese su teléfono celular'
+//           />
+//         </div>
+//         <hr />
+//         <div className='form-grupo-botones'>
+//           <button type="submit" className='btn btnEnviar'>Enviar</button>
+//           <button type="button" onClick={() => setFormulario({ nombre: '', correo: '', celular: '' })} className='btn btnCancelar'>Limpiar</button>
+//         </div>
+//       </form>
 
-    </>
-  );
-} export { FormularioContacto };
+//     </>
+//   );
+// } export { FormularioContacto };
 
 

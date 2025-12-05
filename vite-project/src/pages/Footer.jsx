@@ -8,7 +8,7 @@ export default function Footer() {
       <div className="container">
         <div className="row gy-4">
 
-          <div className="col-lg-4 col-md-6">
+          <div className="col-lg-4 col-md-6 text-center">
             <h2 className="fw-bold mb-3">
               Kiosuko no Manga
             </h2>
@@ -39,7 +39,7 @@ export default function Footer() {
           <div className="col-lg-3 col-md-3 col-6">
             <h5 className="fw-bold mb-3">Nuestra Tienda</h5>
             <ul className="list-unstyled">
-              <li className="mb-2"><a href="/envios" className="text-white">Quiénes Somos</a></li>
+              <li className="mb-2"><a href="/quienes-somos" className="text-white">Quiénes Somos</a></li>
               <li className="mb-2"><a href="/contacto" className="text-white">Contacto</a></li>
             </ul>
             <p className="text-white p-fonts-footer fs-6"><strong>Cerrito 628, CABA, Argentina</strong></p>

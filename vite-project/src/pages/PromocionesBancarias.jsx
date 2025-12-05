@@ -11,11 +11,18 @@ function PromocionesBancarias() {
   const [error, setError] = useState(null);
   const navigate = useNavigate();
 
+  // const imagenes = {
+  //   "../img/promoBNA.png": promoBNA,
+  //   "../img/promoCiudad.png": promoCiudad,
+  //   "../img/promoICBC.png": promoICBC
+  // };
+
   const imagenes = {
-    "/img/promoBNA.png": promoBNA,
-    "/img/promoCiudad.png": promoCiudad,
-    "/img/promoICBC.png": promoICBC
+    "BNA": promoBNA,      // Asume que promo.banco en el JSON es "BNA"
+    "Ciudad": promoCiudad, // Asume que promo.banco en el JSON es "Ciudad"
+    "ICBC": promoICBC     // Asume que promo.banco en el JSON es "ICBC"
   };
+
 
   useEffect(() => {
     try {

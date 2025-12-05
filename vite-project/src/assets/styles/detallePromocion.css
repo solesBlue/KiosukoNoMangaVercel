@@ -5,18 +5,7 @@
   font-family: "Segoe UI", sans-serif;
 }
 
-/* .btn-volver {
-  display: inline-block;
-  color: white;
-  text-decoration: none;
-  font-weight: 600;
-  font-size: 1rem;
-  margin-bottom: 1.5rem;
-  margin-top: 1.5rem;
-  transition: color 0.3s;
-  background-color: #062a41;
-  border-radius: 5px;
-} */
+
 
 .btn-volver:hover {
   color: #F5C518;

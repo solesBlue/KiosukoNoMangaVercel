@@ -54,12 +54,8 @@ export default function Dashboard() {
       />
 
       <div style={{ padding: '20px', minHeight: '60vh' }}>
-        {/* <h1>Dashboard Administrativo</h1> */}
         <div style={{ background: '#f5f5f5', padding: '20px', borderRadius: '8px' }}>
-          {/* <p><strong>Sesión iniciada como: </strong> {usuario.nombre}</p> */}
 
-
-          {/* SECCIÓN DEL TOKEN */}
           <div style={{
             background: '#e9ecef',
             padding: '10px',
@@ -73,7 +69,6 @@ export default function Dashboard() {
           </div>
 
 
-          {/* SECCIÓN DE ACCIONES ADMIN */}
           <div>
             <h3>Acciones:</h3>
             <div style={{ display: 'flex', gap: '10px', flexWrap: 'wrap', marginTop: '10px' }}>
@@ -147,7 +142,6 @@ export default function Dashboard() {
                           <button
                             className="btn btn-danger"
                             title="Eliminar"
-                            // onClick={() => manejarEliminar(producto.id)}
                             onClick={() => navigate(`/gestionar-producto/eliminar-producto/${producto.id}`)}
                           >
                             <i className="bi bi-trash"></i>

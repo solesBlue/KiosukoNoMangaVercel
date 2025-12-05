@@ -36,17 +36,6 @@ export default function Footer() {
             </div>
           </div>
 
-          {/* <div className="col-lg-2 col-md-3 col-6">
-            <h5 className="fw-bold mb-3">Info Otaku</h5>
-            <ul className="list-unstyled">
-              <li className="mb-2"><a href="/novedades" className="text-white">Novedades</a></li>
-              <li className="mb-2"><a href="/preventas" className="text-white">Preventas</a></li>
-              <li className="mb-2"><a href="/mas-vendidos" className="text-white">Más vendidos</a></li>
-              <li className="mb-2"><a href="/colecciones" className="text-white">Colecciones</a></li>
-              <li className="mb-2"><a href="/ofertas" className="text-white">Promociones Bancarias</a></li>
-            </ul>
-          </div> */}
-
           <div className="col-lg-3 col-md-3 col-6">
             <h5 className="fw-bold mb-3">Nuestra Tienda</h5>
             <ul className="list-unstyled">

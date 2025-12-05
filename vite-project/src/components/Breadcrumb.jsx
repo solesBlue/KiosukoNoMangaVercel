@@ -6,7 +6,7 @@ const Breadcrumb = ({ items = [] }) => {
   if (!items || items.length === 0) return null;
 
   return (
-    <nav aria-label="breadcrumb" className="py-3 bg-light border-bottom">
+    <nav aria-label="breadcrumb" className="py-3 bg-light border-bottom breadcrumb-fonts fw-bolbder">
       <div className="px-4 px-md-5">
         <ol className="breadcrumb mb-0 d-inline-flex align-items-center p-0 bg-transparent">
           {items.map((item, index) => {

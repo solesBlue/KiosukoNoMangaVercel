@@ -57,8 +57,6 @@ export default function IniciarSesion() {
           <NavLink to="/" className="navbar-brand p-0">
             <img src={logo} alt="Kiosuko no Manga" className="logo-navbar" />
           </NavLink>
-          {/* <h2 className="login-title"> Iniciar Sesión</h2> */}
-          {/* <h5 className="login-subtitle">Continuá con la compra</h5> */}
           <form onSubmit={manejarEnvio} noValidate>
             <div className="form-floating mb-3">
               <input type="email" className="form-control" id="floatingInput" placeholder="E-mail"

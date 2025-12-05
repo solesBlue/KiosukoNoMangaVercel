@@ -6,7 +6,6 @@ export default function RestablecerContrasena() {
 
     return (
         <>
-            {/* Breadcrumb igual que en el registro */}
             <Breadcrumb
                 items={[
                     { label: "Home", to: "/" },

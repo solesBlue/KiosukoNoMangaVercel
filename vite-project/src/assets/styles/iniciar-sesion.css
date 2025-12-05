@@ -50,30 +50,3 @@
   margin-top: 0.5rem;
 }
 
-/* Animación */
-@keyframes fadeInUp {
-  from {
-    opacity: 0;
-    transform: translateY(30px);
-  }
-
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-/* Responsive */
-@media (max-width: 480px) {
-  .login-card {
-    padding: 2rem 1.5rem;
-  }
-
-  .login-title {
-    font-size: 1.7rem;
-  }
-
-  .button-group {
-    flex-direction: column;
-  }
-}

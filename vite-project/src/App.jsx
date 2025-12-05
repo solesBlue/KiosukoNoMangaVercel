@@ -12,7 +12,6 @@ import Inicio from './pages/Inicio'
 import Footer from './pages/Footer.jsx'
 import Contacto from './pages/Contacto.jsx'
 import Productos from './pages/Productos.jsx';
-import ProductoDetalle from './pages/DetalleProductos.jsx';
 import DetallePromociones from "./pages/DetallePromociones"; import notFoundImage from './assets/img/Error404.png'
 import CarritoCompras from './pages/Carrito.jsx'
 import Error404 from './components/Error404.jsx'
@@ -54,15 +53,13 @@ function App() {
         <Routes>
           <Route path='/' element={<Inicio />} />
           <Route path='/productos' element={<Productos />} />
-          <Route path='/productos/:id' element={<ProductoDetalle />} />
-          <Route path='/productos/:categoria/:id' element={<ProductoDetalle />} />
-          {/* <Route path='/carritocompras' element={<CarritoCompras/>}/> */}
+          <Route path='/productos/:id' element={<Productos />} />
+          <Route path='/productos/:categoria/:id' element={<Productos />} />
           <Route path='/contacto' element={<Contacto />} />
           <Route path="/carrito" element={<CarritoCompras />} />
           <Route path='/iniciar-sesion' element={<IniciarSesion />} />
           <Route path='/registrar-usuario' element={<RegistrarUsuario />} />
           <Route path='/restablecer-password' element={<RestablecerPassword />} />
-
 
           <Route path="/pagar" element={<RutasProtegidas> <Pagar /></RutasProtegidas>} />
           <Route path="/dashboard" element={<RutasProtegidas soloAdmin={true}><Dashboard /></RutasProtegidas>} />
@@ -72,17 +69,7 @@ function App() {
           <Route path="/gestionar-producto/editar-producto/:id" element={<RutasProtegidas soloAdmin={true}><GestionarProducto /></RutasProtegidas>} />
           <Route path="/gestionar-producto/eliminar-producto/:id" element={<RutasProtegidas soloAdmin={true}><EliminarProducto /></RutasProtegidas>} />
           {/* Deja de ir  las propities en el componente, se reemplaza por el AppContext */}
-          {/* <Route path='/iniciar-sesion' element={<IniciarSesion setIsAuthenticated={setIsAuthenticated} setUsuario={setUsuario}/>}/> */}
-          {/* <Route path="/pagar" element={
-              <RutasProtegidas isAuthenticated={isAuthenticated}>
-                <Pagar
-                  setIsAuthenticated={setIsAuthenticated}
-                  setUsuario={setUsuario}
-                  usuario={usuario}
-                />
-              </RutasProtegidas>
-            } 
-          />*/}
+
           <Route path="/promociones" element={<PromocionesBancarias />} />
           <Route path="/promociones/detalle/:banco/:id" element={<DetallePromociones />} />
           <Route path="/" element={<PromocionesBancarias />} />

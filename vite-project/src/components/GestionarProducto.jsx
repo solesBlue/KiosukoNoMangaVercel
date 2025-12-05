@@ -419,15 +419,7 @@ function GestionarProducto() {
               >Limpiar
               </button>
             )}
-            {/* {modo === 'editar' && ( */}
-            {/* <button
-                type="button"
-                className="btn btn-secondary btn-lg px-4 fw-bold"
-                onClick={() => navigate('/dashboard')}
-                disabled={cargando}
-              > Cancelar
-              </button> */}
-            {/* )} */}
+
 
             <button type="submit" className="btn btn-success btn-lg px-4 fw-bold" disabled={cargando}>
               {cargando ? `${modo === 'editar' ? 'Actualizando...' : 'Agregando...'}` :
@@ -435,13 +427,6 @@ function GestionarProducto() {
             </button>
           </div>
 
-          {/* {Object.keys(errores).length > 0 && (
-            <div className="alert alert-warning mt-3">
-              <i className="bi bi-exclamation-triangle me-2"></i>
-              <strong>{Object.keys(errores).length}</strong> campo(s) con error.
-              Corríjalos para poder enviar.
-            </div>
-          )} */}
         </form >
       </div >
 

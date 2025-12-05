@@ -21,3 +21,4 @@ function BannerTienda() {
     </>
   );
 } export default BannerTienda;
+

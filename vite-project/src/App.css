@@ -4,6 +4,14 @@
   box-sizing: border-box;
 }
 
+/*-------------Textos-------------*/
+
+.text-font {
+  font-family: 'Permanent Marker', cursive;
+  font-size: 1.5rem;
+}
+
+
 /*-----------Carrito de Compras------------*/
 
 .bg-prod-carrito {

@@ -1,76 +1,88 @@
+/* src/assets/styles/banner.css */
 .bannerContainer {
   position: relative;
   width: 100%;
-  /* aspect-ratio: 25 / 5;
+  max-height: 90vh;           /* nunca más alto que la pantalla */
   overflow: hidden;
-  display: block; */
+  margin-bottom: 3rem;        /* espacio perfecto antes de "Los más vendidos" */
 }
 
 .bannerTienda {
   width: 100%;
-  height: 100%;
-  object-fit: cover;
+  height: auto;
   display: block;
-  position: absolute;
-  object-fit: cover;
-  object-position: center;
 }
 
+/* Fondo oscuro solo en la zona del texto (más elegante y evita que ocupe toda la pantalla) */
 .bannerOverlay {
   position: absolute;
   inset: 0;
   display: flex;
-  align-items: center;
+  align-items: flex-end;      /* texto pegado abajo en móvil */
   justify-content: center;
-  padding: 1rem;
+  padding: 2rem 1rem;
+  background: linear-gradient(
+    to bottom,
+    transparent 0%,
+    rgba(0, 0, 0, 0.2) 30%,
+    rgba(0, 0, 0, 0.8) 100%
+  );
+  pointer-events: none;
 }
 
 .bannerTexto {
   color: white;
   text-align: center;
-  background: rgba(0, 0, 0, 0.35);
-  /* padding: 1rem 1.25rem; */
-  border-radius: 12px;
-  max-width: 900px;
-  width: 100%;
+  background: rgba(0, 0, 0, 0.50);
+  padding: 1.2rem 2rem;
+  border-radius: 20px;
+  max-width: 95%;
+  backdrop-filter: blur(8px);
+  border: 3px solid #F5C518;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.6);
 }
 
 .h2-banner {
   margin: 0 0 0.5rem 0;
   color: #F5C518;
   font-family: 'Russo One', sans-serif;
-  font-weight: 500;
-  line-height: 1.05;
-  text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.6);
+  /* font-weight: 200; */
+  line-height: 1.1;
+  /* font-size: clamp(1.8rem, 5vw, 3.2rem); */
+  text-shadow: 4px 4px 12px #000;
 }
 
 .banner-texto-secundario {
   margin: 0;
   font-family: "Oswald", sans-serif;
-  color: #FFFFFF;
-  opacity: 0.95;
-  text-shadow: 1px 1px 8px rgba(0, 0, 0, 0.55);
+  color: #fff;
+  font-size: clamp(1.1rem, 3.5vw, 1.6rem);
+  text-shadow: 2px 2px 8px #000;
 }
 
-/*--------------Responsive-------------- */
-@media (min-width: 640px) {
+/* Desktop: altura controlada y texto centrado */
+@media (min-width: 768px) {
   .bannerContainer {
-    aspect-ratio: 16 / 4;
+    max-height: 300px;           /* ← altura máxima en escritorio */
+    margin-bottom: 4rem;
+  }
+  .bannerOverlay {
+    align-items: center;         /* texto centrado verticalmente en desktop */
+    padding: 2rem;
   }
   .bannerTexto {
-    padding: 1.5rem 2rem;
+    padding: 1.8rem 3rem;
+    max-width: 1000px;
   }
 }
 
-@media (min-width: 1024px) {
-  .bannerContainer {
-    aspect-ratio: 16 / 3;
-  }
-}
-
-@media (max-width: 420px) {
+/* Móvil pequeño */
+@media (max-width: 480px) {
   .bannerTexto {
-    padding: .75rem 1rem;
-    border-radius: 8px;
+    padding: 1rem 1.5rem;
+    border-width: 2px;
+  }
+  .bannerContainer {
+    margin-bottom: 2.5rem;
   }
 }

@@ -75,6 +75,7 @@ function App() {
           <Route path="/promociones" element={<PromocionesBancarias />} />
           <Route path="/promociones/detalle/:banco/:id" element={<DetallePromociones />} />
           <Route path="/" element={<PromocionesBancarias />} />
+          {/* <Route path="*" element={<div>404 - Página no encontrada</div>} />  */}
           <Route path='*' element={<Error404 />} />
         </Routes>
         <Footer />
